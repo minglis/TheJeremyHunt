@@ -4,15 +4,19 @@ enyo.kind({
     components: [
 	{kind: "PageHeader", content: "The Jeremy Hunt"},
 	{
-	    kind: "RowGroup", 
-	    caption: "Feed URL", 
-	    components: [
-		{
-		    kind: "Input", 
-		    components: [
-			{
-			    kind: "Button", caption: "Get Feed", onclick: "getPos"},
-		    ]},
+			kind: "RowGroup", 
+			caption: "Feed URL", 
+			components: [
+				{
+					kind: "Input", 
+					components: [
+						{
+							kind: "Button", caption: "Get Position", onclick: "getPos"},
+				]},
+				{
+				  kind: "Clues"
+				},
+			
 		{
 		    kind: "Input", 
 		    components: [
