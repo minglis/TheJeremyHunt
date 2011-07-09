@@ -5,13 +5,16 @@ enyo.kind({
 	{kind: "PageHeader", content: "The Jeremy Hunt"},
 	{
 			kind: "RowGroup", 
-			caption: "Feed URL", 
+			caption: "Check in Now", 
 			components: [
 				{
 					kind: "Input", 
 					components: [
 						{
-							kind: "Button", caption: "Get Position", onclick: "getPos"},
+							kind: "Button", caption: "Check In Here", onclick: "getPos"
+						},
+						{kind: "Image", name: "checkInImage", src: "resources/question.jpg"}
+							
 				]},
 				{
 				  kind: "Clues"
@@ -57,6 +60,7 @@ enyo.kind({
     },
     getPos: function() {
 	console.log("Calling location services");
-	this.$.getCurPosition.call();
+	this.$.checkInImage.setSrc("resources/cross.jpg");
+	//this.$.getCurPosition.call();
     }
 });
