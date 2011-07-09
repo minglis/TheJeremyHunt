@@ -5,13 +5,16 @@ enyo.kind({
 	{kind: "PageHeader", content: "The Jeremy Hunt"},
 	{
 			kind: "RowGroup", 
-			caption: "Feed URL", 
+			caption: "Check in Now", 
 			components: [
 				{
 					kind: "Input", 
 					components: [
 						{
-							kind: "Button", caption: "Get Position", onclick: "getPos"},
+							kind: "Button", caption: "Check In Here", onclick: "getPos"
+						},
+						{kind: "Image", name: "checkInImage", src: "resources/question.jpg"}
+							
 				]},
 				{
 				  kind: "Clues"
@@ -39,24 +42,39 @@ enyo.kind({
 	}
     ],
     btnClick: function() {
-	this.$.pageHeader.setContent("yoo");
+		this.$.pageHeader.setContent("yoo");
     },
     playSound: function() {
 	this.$.sound1.play();
     },
     gotResponse : function (inSender, inResponse) {
-	console.log("GOT RESPONSE"+ enyo.json.stringify(inResponse));
     },
     posFinished: function(inSender, inResponse) {
-	console.log("SUCCESS");
-	this.$.pageHeader.setContent("location retrieved" + enyo.json.stringify(inResponse));
+		this.$.pageHeader.setContent("location retrieved" + enyo.json.stringify(inResponse));
+		
+		var actualLat = inResponse.latitude;
+		var actualLong = inResponse.longitude;
+		
+		console.log(actualLat + " " + actualLong);
+		console.log(this.$.clues.getCurrentClue().lat  + " " + this.$.clues.getCurrentClue().lon);
+		
+		console.log(actualLat == this.$.clues.getCurrentClue().lat);
+		console.log(actualLong == this.$.clues.getCurrentClue().lon);
+		
+		if(actualLat == this.$.clues.getCurrentClue().lat && actualLong == this.$.clues.getCurrentClue().lon) {
+		 		this.$.checkInImage.setSrc("resources/tick.jpg");
+		 		this.$.clues.incrementClueNumber();
+		 	} else {
+		 		this.$.pageHeader.setContent("you missed");	
+		 		this.$.checkInImage.setSrc("resources/cross.jpg");
+		
+		}
+		
     },
     posFail : function(inSender, inResponse) {
-	console.log("FAILED");
-	this.$.pageHeader.setContent("location failed"+ enyo.json.stringify(inResponse));
+		this.$.pageHeader.setContent("location lookup failed");
     },
     getPos: function() {
-	console.log("Calling location services");
-	this.$.getCurPosition.call();
+		this.$.getCurPosition.call();
     }
 });
