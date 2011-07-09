@@ -27,7 +27,7 @@ enyo.kind({
 			    kind: "Button", caption: "Play Sound", onclick: "playSound"},
 		    ]},
 		{
-		    kind: "Sound", src: "resources/beep-2.mp3"
+		    kind: "Sound", name: 'sound1', src: "resources/beep-2.mp3"
 		}
 	    ]},
 	{
@@ -45,7 +45,7 @@ enyo.kind({
 		this.$.pageHeader.setContent("yoo");
     },
     playSound: function() {
-		this.$.sound.play();
+	this.$.sound1.play();
     },
     gotResponse : function (inSender, inResponse) {
     },
