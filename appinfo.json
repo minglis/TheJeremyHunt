@@ -1,0 +1,9 @@
+{
+  "id": "com.palm.thejeremyhunt",
+  "version": "1.0.0",
+  "vendor": "HP",
+  "type": "web",
+  "main": "index.html",
+  "title": "The Jeremy Hunt",
+  "uiRevision": "2"
+}
