@@ -52,8 +52,8 @@ enyo.kind({
     posFinished: function(inSender, inResponse) {
 		this.$.pageHeader.setContent("location retrieved" + enyo.json.stringify(inResponse));
 		
-		var actualLat = inResponse.latitude;
-		var actualLong = inResponse.longitude;
+		var actualLat = Math.round(parseFloat(inResponse.latitude) * 100) / 100;
+		var actualLong = Math.round(parseFloat(inResponse.longitude) * 100) / 100;
 		
 		console.log(actualLat + " " + actualLong);
 		console.log(this.$.clues.getCurrentClue().lat  + " " + this.$.clues.getCurrentClue().lon);
