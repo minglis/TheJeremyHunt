@@ -1,8 +1,10 @@
 enyo.kind({
   name: "Clues",
   kind: enyo.Control,
+  currentClue: 1,
   cluelist: [
-      		{clue1: "I'm clue 1"}
+      		{text: "I'm clue 1"},
+      		{text: "I'm clue 2"}
       ],
   
   components: [
@@ -16,6 +18,6 @@ enyo.kind({
 	],
 	getClue: function() {
 		console.log(this.cluelist[0].clue1);
-		this.$.clueInput.setValue(this.cluelist[0].clue1)
+		this.$.clueInput.setValue(this.cluelist[this.currentClue].text)
 	},
 });
