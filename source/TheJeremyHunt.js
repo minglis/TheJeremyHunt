@@ -7,28 +7,36 @@ enyo.kind({
 			kind: "RowGroup", 
 			caption: "Check in Now", 
 			components: [
+			
+			{
+			  kind: "Clues"
+			},
 				{
-					kind: "Input", 
+					    kind: "Button", caption: "Play Sound", onclick: "playSound",
+				},
+				{
+				    kind: "Sound", src: "resources/beep-2.mp3"
+				},
+				{
+					kind: enyo.VFlexBox, 
 					components: [
 						{
-							kind: "Button", caption: "Check In Here", onclick: "getPos"
+							kind: "Button", caption: "Guess 1", onclick: "getPos"
 						},
+						{kind: "Image", name: "checkInImage", src: "resources/question.jpg"},
+						
+							{
+								kind: "Button", caption: "Guess 2", onclick: "getPos"
+							},
+							{kind: "Image", name: "checkInImage", src: "resources/question.jpg"},
+
+								{
+									kind: "Button", caption: "Guess 3", onclick: "getPos"
+								},
 						{kind: "Image", name: "checkInImage", src: "resources/question.jpg"}
 							
-				]},
-				{
-				  kind: "Clues"
-				},
-			
-		{
-		    kind: "Input", 
-		    components: [
-			{
-			    kind: "Button", caption: "Play Sound", onclick: "playSound"},
-		    ]},
-		{
-		    kind: "Sound", src: "resources/beep-2.mp3"
-		}
+				]}
+	
 	    ]},
 	{
 	    name : "getCurPosition",
