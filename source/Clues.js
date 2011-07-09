@@ -1,10 +1,11 @@
 enyo.kind({
   name: "Clues",
   kind: enyo.Control,
-  currentClue: 1,
+  currentClueNumber: 0,
   cluelist: [
       		{text: "I'm clue 1"},
-      		{text: "I'm clue 2"}
+      		{text: "I'm clue 2"},
+      		{text: "I'm clue 3"}
       ],
   
   components: [
@@ -18,6 +19,13 @@ enyo.kind({
 	],
 	getClue: function() {
 		console.log(this.cluelist[0].clue1);
-		this.$.clueInput.setValue(this.cluelist[this.currentClue].text)
+		this.$.clueInput.setValue(this.cluelist[this.currentClueNumber].text);
+	},
+	getCurrentClue: function () {
+	  return this.cluelist[this.currentClueNumber]
+	},
+	incrementClueNumber: function (){
+	  this.currentClueNumber ++;
+	  this.$.clueInput.setValue(this.cluelist[this.currentClueNumber].text);
 	},
 });

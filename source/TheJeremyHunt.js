@@ -60,7 +60,9 @@ enyo.kind({
     },
     getPos: function() {
 	console.log("Calling location services");
-	this.$.checkInImage.setSrc("resources/cross.jpg");
+	this.$.checkInImage.setSrc("resources/tick.jpg");
+	this.$.clues.incrementClueNumber();
+	console.log(this.$.clues.getCurrentClue().text)
 	//this.$.getCurPosition.call();
     }
 });
