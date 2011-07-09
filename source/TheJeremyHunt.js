@@ -13,7 +13,7 @@ enyo.kind({
 						{
 							kind: "Button", caption: "Check In Here", onclick: "getPos"
 						},
-						{kind: "Image", name: "checkInImage", src: "resources/question.jpg"}
+						{kind: "Image", name: "checkInImage", src: "images/question_mark.png"}
 							
 				]},
 				{
@@ -52,8 +52,8 @@ enyo.kind({
     posFinished: function(inSender, inResponse) {
 		this.$.pageHeader.setContent("location retrieved" + enyo.json.stringify(inResponse));
 		
-		var actualLat = inResponse.latitude;
-		var actualLong = inResponse.longitude;
+		var actualLat = Math.round(parseFloat(inResponse.latitude) * 100) / 100;
+		var actualLong = Math.round(parseFloat(inResponse.longitude) * 100) / 100;
 		
 		console.log(actualLat + " " + actualLong);
 		console.log(this.$.clues.getCurrentClue().lat  + " " + this.$.clues.getCurrentClue().lon);
@@ -62,11 +62,11 @@ enyo.kind({
 		console.log(actualLong == this.$.clues.getCurrentClue().lon);
 		
 		if(actualLat == this.$.clues.getCurrentClue().lat && actualLong == this.$.clues.getCurrentClue().lon) {
-		 		this.$.checkInImage.setSrc("resources/tick.jpg");
+		 		this.$.checkInImage.setSrc("images/tick.png");
 		 		this.$.clues.incrementClueNumber();
 		 	} else {
 		 		this.$.pageHeader.setContent("you missed");	
-		 		this.$.checkInImage.setSrc("resources/cross.jpg");
+		 		this.$.checkInImage.setSrc("images/cross.png");
 		
 		}
 		
