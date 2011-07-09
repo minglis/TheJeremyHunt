@@ -11,8 +11,12 @@ enyo.kind({
 					kind: "Input", 
 					components: [
 						{
-							kind: "Button", caption: "Get Feed", onclick: "getPos"},
-				]}
+							kind: "Button", caption: "Get Position", onclick: "getPos"},
+				]},
+				{
+				  kind: "Clues"
+				}
+				
 		]},
 		{
 			name : "getCurPosition",
