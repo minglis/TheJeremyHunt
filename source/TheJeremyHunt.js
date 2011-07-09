@@ -63,6 +63,7 @@ enyo.kind({
 	this.$.checkInImage.setSrc("resources/tick.jpg");
 	this.$.clues.incrementClueNumber();
 	console.log(this.$.clues.getCurrentClue().text)
-	//this.$.getCurPosition.call();
+	console.log(this.$.clues.getCurrentClue().lat)
+	this.$.getCurPosition.call();
     }
 });
