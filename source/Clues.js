@@ -3,9 +3,9 @@ enyo.kind({
     kind: enyo.Control,
     currentClueNumber: 0,
     cluelist: [
-	{text: "Perhaps a meeting with Alan Rusbridger would help", lat: "51.53", lon: "-0.12", image: 'images/question_1.png'},
-      	{text: "Pub named after tabloid name for redundancy, \n an item of footwear that's on the other foot now", lat: "51.52", lon: "-0.12", image: 'images/question_2.png'},
-      	{text: "Road that shares the name with a famous prison", lat: "51.53", lon: "-0.12", image: 'images/question_3.png'},
+	{text: "Mr M is coming to town to sort things out. He's arriving from Paris... ", lat: "51.53", lon: "-0.12", image: 'images/question_1.png'},
+      	{text: "You need to speak to Ms Brooks. We've had a tip-off you'll find her seeking solace in the bottle.", lat: "51.52", lon: "-0.12", image: 'images/question_2.png'},
+      	{text: "If only there was a place you could go to find a more honest and truthful account of events... ", lat: "51.53", lon: "-0.12", image: 'images/question_3.png'},
       	{text: "You've won!!", lat: "51.53", lon: "-0.12", image: 'images/win.png'}
     ],
     
