@@ -36,8 +36,6 @@ enyo.kind({
 						{kind: "Image", name: "checkInImage", src: "resources/question.jpg"},
 						{kind: "Image", name: "checkInImage", src: "images/question_mark.png"}
 							
-				]}
-	
 	    ]},
 	{
 	    name : "getCurPosition",
@@ -54,7 +52,7 @@ enyo.kind({
 		this.$.pageHeader.setContent("yoo");
     },
     playSound: function() {
-		this.$.sound.play();
+	this.$.sound1.play();
     },
     gotResponse : function (inSender, inResponse) {
     },
