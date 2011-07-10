@@ -13,16 +13,16 @@ enyo.kind({
   
   components: [
 		{
-			kind: "Input",
+			kind: "HFlexBox",
 			name: "clueInput" ,
 			components: [
-				{
-					kind: "Button", caption: "Get Clue", onclick: "getClue"},
+				{content: "", name: "cluetext", flex: 1},{
+					kind: "Button", caption: "Get Clue", onclick: "getClue"}
 		]}
 	],
 	getClue: function() {
-		console.log(this.cluelist[0].clue1);
-		this.$.clueInput.setValue(this.cluelist[this.currentClueNumber].text);
+		//console.log(this.cluelist[0].clue1);
+		this.$.cluetext.setContent(this.cluelist[this.currentClueNumber].text);
 	},
 	getCurrentClue: function () {
 	  return this.cluelist[this.currentClueNumber]
@@ -31,4 +31,8 @@ enyo.kind({
 	  this.currentClueNumber ++;
 	  this.$.clueInput.setValue(this.cluelist[this.currentClueNumber].text);
 	},
+	create: function(){
+		this.inherited(arguments);
+		this.getClue();
+	}
 });
