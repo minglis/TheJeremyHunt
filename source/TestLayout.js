@@ -5,10 +5,10 @@ enyo.kind({
 	{kind: 'Clues'},
 	{kind: "PageHeader", content: "The Jeremy Hunt"},
 	
-	{kind: "Group", caption: "How many mice live under the tree to the north of the bus?",
+	{kind: "Group", name: 'clueText', caption: "How many mice live under the tree to the north of the bus?",
 	 components: [
 
-	     {kind: "Image", src: "resources/clue-image2.jpg"},
+	     {kind: "Image", name: 'picture', src: ''},
 
 	     {kind: "ToolButtonGroup", 
 	      pack: "center", align: "end", components: [
@@ -50,5 +50,26 @@ enyo.kind({
     },
     nextQuestion: function() {
 	console.log( 'next question' );
+	var clue = this.$.clues.incrementClueNumber();
+	this.initialize();
+    },
+    initialize: function() {
+	console.log( 'initialize' );
+	var clue = this.$.clues.getCurrentClue();
+	this.$.clueText.setCaption( clue.text );
+	this.$.picture.setSrc( clue.image );
+	this.resetButtons();
+    },
+    resetButtons: function() {
+	console.log( 'resetting buttons' );
+	this.$.firstTry.disabled = false;
+	this.$.secondTry.disabled = true;
+	this.$.thirdTry.disabled = true;
+	
+	this.$.firstTry.setIcon('resources/qmark.png')
+	this.$.secondTry.setIcon('resources/qmark.png')
+	this.$.thirdTry.setIcon('resources/qmark.png')
     }
+
+
 })
